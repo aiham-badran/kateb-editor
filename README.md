@@ -169,5 +169,5 @@ MIT License – انظر ملف [LICENSE](LICENSE).
 ## 🌐 الروابط
 
 - [GitHub Repository](https://github.com/aiham-badran/kateb-editor)
-- [نموذج تجريبي (Demo)](https://your-username.github.io/kateb-editor/)
+- [نموذج تجريبي (Demo)](https://aiham-badran.github.io/kateb-editor/)
 - [توثيق API](https://your-username.github.io/kateb-editor/docs/)
