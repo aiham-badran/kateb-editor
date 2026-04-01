@@ -92,13 +92,12 @@
       </p>
       <p>تجربة حية لمحرر Kateb – جميع الحقوق محفوظة © 2025</p>
     </footer>
-    <script src="js/kateb-editor.js"></script>
     <script type="module">
       // تأكد من تعديل المسار حسب طريقة الاستيراد
       // أثناء التطوير نستخدم المصدر مباشرة:
       // import { KatebEditor, blocks, marks } from "./src/index.ts";
       // بعد البناء، يمكن استخدام:
-      //import { KatebEditor, blocks, marks } from "./js/kateb-editor.js";
+      import { KatebEditor, blocks, marks } from "./js/kateb-editor.js";
 
       // تهيئة المحرر مع البلوكات والماركات الافتراضية
       const editor = new KatebEditor(document.getElementById("editor"), {
