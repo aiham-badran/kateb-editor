@@ -6,7 +6,7 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "outDir": "demo/dist",
+    "outDir": "demo/js",
     "rootDir": "./src",
     "strict": true,
     "moduleResolution": "bundler",
@@ -15,5 +15,5 @@
     "forceConsistentCasingInFileNames": true
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "demo/dist"]
+  "exclude": ["node_modules", "demo/js"]
 }
