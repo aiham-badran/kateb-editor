@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kateb Editor – تجربة حية</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        max-width: 1000px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+        background: #f9f9f9;
+        direction: rtl;
+      }
+      h1 {
+        text-align: center;
+        color: #2c3e50;
+      }
+      .demo-container {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        margin-bottom: 2rem;
+      }
+      .controls {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+      }
+      button {
+        background: #3498db;
+        border: none;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background 0.2s;
+      }
+      button:hover {
+        background: #2980b9;
+      }
+      pre {
+        background: #f4f4f4;
+        padding: 1rem;
+        border-radius: 8px;
+        overflow-x: auto;
+        direction: ltr;
+        text-align: left;
+      }
+      footer {
+        text-align: center;
+        margin-top: 2rem;
+        color: #7f8c8d;
+        font-size: 0.9rem;
+      }
+      a {
+        color: #3498db;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>✍️ Kateb Editor – تجربة حية</h1>
+    <p style="text-align: center">
+      محرر نصوص عربي بنظام البلوكات، مع دعم RTL، علامات الترقيم، شريط أدوات،
+      وقائمة Slash.
+    </p>
+
+    <div class="demo-container">
+      <div id="editor"></div>
+    </div>
+
+    <div class="controls">
+      <button id="get-content">📄 عرض المحتوى (JSON)</button>
+      <button id="load-sample">📖 تحميل نص تجريبي</button>
+    </div>
+
+    <pre id="content-display">(سيعرض المحتوى هنا)</pre>
+
+    <footer>
+      <p>
+        المكتبة مفتوحة المصدر | <a href="#">GitHub</a> |
+        <a href="#">توثيق API</a>
+      </p>
+      <p>تجربة حية لمحرر Kateb – جميع الحقوق محفوظة © 2025</p>
+    </footer>
+
+    <script type="module">
+      // تأكد من تعديل المسار حسب طريقة الاستيراد
+      // أثناء التطوير نستخدم المصدر مباشرة:
+      // import { KatebEditor, blocks, marks } from "./src/index.ts";
+      // بعد البناء، يمكن استخدام:
+      import { KatebEditor, blocks, marks } from "./js/kateb-editor.js";
+
+      // تهيئة المحرر مع البلوكات والماركات الافتراضية
+      const editor = new KatebEditor(document.getElementById("editor"), {
+        blocks: [blocks.paragraphBlock, blocks.headingBlock],
+        marks: [marks.strongMark, marks.emMark],
+        enableToolbar: true,
+        enableSlashMenu: true,
+      });
+
+      // زر عرض المحتوى
+      document.getElementById("get-content").addEventListener("click", () => {
+        const content = editor.getContent();
+        document.getElementById("content-display").textContent = JSON.stringify(
+          content,
+          null,
+          2,
+        );
+      });
+
+      // زر تحميل نص تجريبي (يضبط محتوى المحرر)
+      document.getElementById("load-sample").addEventListener("click", () => {
+        const { state, dispatch } = editor.view;
+        const { schema } = state;
+
+        // بناء مستند تجريبي: عنوان + فقرة
+        const doc = schema.node("doc", null, [
+          schema.node(
+            "heading",
+            { level: 1, dir: "rtl" },
+            schema.text("مرحباً بك في Kateb Editor"),
+          ),
+          schema.node(
+            "paragraph",
+            { dir: "rtl" },
+            schema.text(
+              "هذا محرر نصوص عربي متطور. يمكنك استخدام اختصارات لوحة المفاتيح، شريط الأدوات، أو قائمة Slash (/).",
+            ),
+          ),
+          schema.node(
+            "heading",
+            { level: 2, dir: "rtl" },
+            schema.text("ميزات المحرر"),
+          ),
+          schema.node(
+            "paragraph",
+            { dir: "rtl" },
+            schema.text(
+              "✅ دعم كامل للغة العربية (RTL).\n✅ تحويل تلقائي لعلامات الترقيم (، ؟ ؛).\n✅ إضافة بلوكات عبر Slash Menu.\n✅ شريط أدوات عائم للتنسيق.\n✅ اختصارات لوحة المفاتيح (Ctrl+B, Ctrl+I, Ctrl+Alt+1..3).",
+            ),
+          ),
+          schema.node(
+            "paragraph",
+            { dir: "rtl" },
+            schema.text("ابدأ الكتابة الآن!"),
+          ),
+        ]);
+
+        const tr = state.tr.replaceWith(0, state.doc.content.size, doc);
+        dispatch(tr);
+      });
+    </script>
+  </body>
+</html>
