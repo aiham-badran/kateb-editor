@@ -1,0 +1,111 @@
+<!DOCTYPE html><html class="default" lang="en" data-base="./"><head><meta charset="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>Kateb Editor API</title><meta name="description" content="Documentation for Kateb Editor API"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script defer src="assets/main.js"></script><script async src="assets/icons.js" id="tsd-icons-script"></script><script async src="assets/search.js" id="tsd-search-script"></script><script async src="assets/navigation.js" id="tsd-nav-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => window.app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar"><div class="tsd-toolbar-contents container"><a href="index.html" class="title">Kateb Editor API</a><div id="tsd-toolbar-links"></div><button id="tsd-search-trigger" class="tsd-widget" aria-label="Search"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-search"></use></svg></button><dialog id="tsd-search" aria-label="Search"><input role="combobox" id="tsd-search-input" aria-controls="tsd-search-results" aria-autocomplete="list" aria-expanded="true" autocapitalize="off" autocomplete="off" placeholder="Search the docs" maxLength="100"/><ul role="listbox" id="tsd-search-results"></ul><div id="tsd-search-status" aria-live="polite" aria-atomic="true"><div>Preparing search index...</div></div></dialog><a href="#" class="tsd-widget menu" id="tsd-toolbar-menu-trigger" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-menu"></use></svg></a></div></header><div class="container container-main"><div class="col-content"><div class="tsd-page-title"><h1>Kateb Editor API</h1></div><div class="tsd-panel tsd-typography"><h1 id="kateb-editor-toolkit" class="tsd-anchor-link">Kateb Editor Toolkit<a href="#kateb-editor-toolkit" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h1>
+<blockquote>
+<p>مكتبة مفتوحة المصدر لبناء محررات نصوص عربية احترافية بنظام البلوكات (Block Editor) باستخدام TypeScript و ProseMirror.</p>
+</blockquote>
+<p><a href="https://www.npmjs.com/package/kateb-editor"><img src="https://img.shields.io/npm/v/kateb-editor.svg" alt="npm version"></a>
+<a href="LICENSE"><img src="https://img.shields.io/npm/l/kateb-editor.svg" alt="license"></a></p>
+<h2 id="✨-المميزات" class="tsd-anchor-link">✨ المميزات<a href="#✨-المميزات" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<ul>
+<li><strong>دعم كامل للغة العربية</strong> – اتجاه RTL، علامات الترقيم العربية (، ؟ ؛)، وتحويل تلقائي عند الكتابة.</li>
+<li><strong>نظام البلوكات (Block‑based)</strong> – مستندات مرنة مع إمكانية إضافة بلوكات مخصصة.</li>
+<li><strong>قابلية التوسع</strong> – أضف بلوكاتك وعلاماتك الخاصة بسهولة.</li>
+<li><strong>واجهة مستخدم جاهزة</strong> – شريط أدوات عائم وقائمة Slash للبلوكات، مع إمكانية تعطيلها.</li>
+<li><strong>اختصارات لوحة المفاتيح</strong> – تدعم التنسيق (غامق، مائل) وتحويل البلوكات.</li>
+<li><strong>مُحسَّن للعربية</strong> – كشف تلقائي لاتجاه النص (RTL/LTR) في الفقرات.</li>
+<li><strong>مستقل عن الأطر</strong> – يعمل مع Vanilla JS أو React / Vue / أي إطار.</li>
+</ul>
+<hr>
+<h2 id="🚀-التثبيت" class="tsd-anchor-link">🚀 التثبيت<a href="#🚀-التثبيت" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<pre><code class="bash"><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">install</span><span class="hl-1"> </span><span class="hl-2">kateb-editor</span>
+</code><button type="button">Copy</button></pre>
+
+<hr>
+<h2 id="📖-الاستخدام-الأساسي" class="tsd-anchor-link">📖 الاستخدام الأساسي<a href="#📖-الاستخدام-الأساسي" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<pre><code class="javascript"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">KatebEditor</span><span class="hl-1">, </span><span class="hl-4">blocks</span><span class="hl-1">, </span><span class="hl-4">marks</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&quot;kateb-editor&quot;</span><span class="hl-1">;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">editor</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">KatebEditor</span><span class="hl-1">(</span><span class="hl-4">document</span><span class="hl-1">.</span><span class="hl-0">getElementById</span><span class="hl-1">(</span><span class="hl-2">&quot;editor&quot;</span><span class="hl-1">), {</span><br/><span class="hl-1">  </span><span class="hl-4">blocks:</span><span class="hl-1"> [</span><span class="hl-4">blocks</span><span class="hl-1">.</span><span class="hl-4">paragraphBlock</span><span class="hl-1">, </span><span class="hl-4">blocks</span><span class="hl-1">.</span><span class="hl-4">headingBlock</span><span class="hl-1">],</span><br/><span class="hl-1">  </span><span class="hl-4">marks:</span><span class="hl-1"> [</span><span class="hl-4">marks</span><span class="hl-1">.</span><span class="hl-4">strongMark</span><span class="hl-1">, </span><span class="hl-4">marks</span><span class="hl-1">.</span><span class="hl-4">emMark</span><span class="hl-1">],</span><br/><span class="hl-1">  </span><span class="hl-4">enableToolbar:</span><span class="hl-1"> </span><span class="hl-5">true</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-4">enableSlashMenu:</span><span class="hl-1"> </span><span class="hl-5">true</span><span class="hl-1">,</span><br/><span class="hl-1">});</span>
+</code><button type="button">Copy</button></pre>
+
+<blockquote>
+<p><code>paragraphBlock</code> و <code>headingBlock</code> و <code>strongMark</code> و <code>emMark</code> هي البلوكات والعلامات الافتراضية التي توفرها المكتبة. يمكنك أيضاً إنشاء بلوكاتك الخاصة.</p>
+</blockquote>
+<hr>
+<h2 id="🧩-إضافة-بلوك-مخصص" class="tsd-anchor-link">🧩 إضافة بلوك مخصص<a href="#🧩-إضافة-بلوك-مخصص" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>أنشئ بلوكاً جديداً باستخدام الكلاس <code>Block</code> أو الدالة المساعدة <code>createBlock</code>:</p>
+<pre><code class="javascript"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">createBlock</span><span class="hl-1">, </span><span class="hl-4">createToolbarButton</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&quot;kateb-editor&quot;</span><span class="hl-1">;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">customBlock</span><span class="hl-1"> = </span><span class="hl-0">createBlock</span><span class="hl-1">(</span><br/><span class="hl-1">  </span><span class="hl-2">&quot;custom&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  {</span><br/><span class="hl-1">    </span><span class="hl-4">content:</span><span class="hl-1"> </span><span class="hl-2">&quot;inline*&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-4">group:</span><span class="hl-1"> </span><span class="hl-2">&quot;block&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-0">toDOM</span><span class="hl-1">() {</span><br/><span class="hl-1">      </span><span class="hl-3">return</span><span class="hl-1"> [</span><span class="hl-2">&quot;div&quot;</span><span class="hl-1">, </span><span class="hl-7">0</span><span class="hl-1">];</span><br/><span class="hl-1">    },</span><br/><span class="hl-1">  },</span><br/><span class="hl-1">  {</span><br/><span class="hl-1">    </span><span class="hl-4">slashLabel:</span><span class="hl-1"> </span><span class="hl-2">&quot;مخصص&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-4">toolbarButtons:</span><span class="hl-1"> [</span><br/><span class="hl-1">      </span><span class="hl-0">createToolbarButton</span><span class="hl-1">(</span><span class="hl-2">&quot;C&quot;</span><span class="hl-1">, (</span><span class="hl-4">state</span><span class="hl-1">, </span><span class="hl-4">dispatch</span><span class="hl-1">) </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">        </span><span class="hl-8">// أمر مخصص (مثلاً إدراج نص)</span><br/><span class="hl-1">      }),</span><br/><span class="hl-1">    ],</span><br/><span class="hl-1">    </span><span class="hl-4">keymap:</span><span class="hl-1"> {</span><br/><span class="hl-1">      </span><span class="hl-2">&quot;Ctrl-Alt-C&quot;</span><span class="hl-4">:</span><span class="hl-1"> (</span><span class="hl-4">state</span><span class="hl-1">, </span><span class="hl-4">dispatch</span><span class="hl-1">) </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">        </span><span class="hl-8">/* ... */</span><br/><span class="hl-1">      },</span><br/><span class="hl-1">    },</span><br/><span class="hl-1">  },</span><br/><span class="hl-1">);</span>
+</code><button type="button">Copy</button></pre>
+
+<p>ثم أضفه إلى المحرر:</p>
+<pre><code class="javascript"><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">editor</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">KatebEditor</span><span class="hl-1">(</span><span class="hl-4">container</span><span class="hl-1">, {</span><br/><span class="hl-1">  </span><span class="hl-4">blocks:</span><span class="hl-1"> [</span><span class="hl-4">customBlock</span><span class="hl-1">],</span><br/><span class="hl-1">});</span>
+</code><button type="button">Copy</button></pre>
+
+<hr>
+<h2 id="🏷️-إضافة-علامة-mark-مخصصة" class="tsd-anchor-link">🏷️ إضافة علامة (Mark) مخصصة<a href="#🏷️-إضافة-علامة-mark-مخصصة" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<pre><code class="javascript"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-4">createMark</span><span class="hl-1">, </span><span class="hl-4">createToolbarButton</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-2">&quot;kateb-editor&quot;</span><span class="hl-1">;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">highlightMark</span><span class="hl-1"> = </span><span class="hl-0">createMark</span><span class="hl-1">(</span><br/><span class="hl-1">  </span><span class="hl-2">&quot;highlight&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  {</span><br/><span class="hl-1">    </span><span class="hl-4">parseDOM:</span><span class="hl-1"> [{ </span><span class="hl-4">tag:</span><span class="hl-1"> </span><span class="hl-2">&quot;mark&quot;</span><span class="hl-1"> }],</span><br/><span class="hl-1">    </span><span class="hl-0">toDOM</span><span class="hl-1">() {</span><br/><span class="hl-1">      </span><span class="hl-3">return</span><span class="hl-1"> [</span><span class="hl-2">&quot;mark&quot;</span><span class="hl-1">, </span><span class="hl-7">0</span><span class="hl-1">];</span><br/><span class="hl-1">    },</span><br/><span class="hl-1">  },</span><br/><span class="hl-1">  {</span><br/><span class="hl-1">    </span><span class="hl-4">toolbarButtons:</span><span class="hl-1"> [</span><br/><span class="hl-1">      </span><span class="hl-0">createToolbarButton</span><span class="hl-1">(</span><span class="hl-2">&quot;H&quot;</span><span class="hl-1">, (</span><span class="hl-4">state</span><span class="hl-1">, </span><span class="hl-4">dispatch</span><span class="hl-1">) </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">        </span><span class="hl-8">// أمر تطبيق العلامة</span><br/><span class="hl-1">      }),</span><br/><span class="hl-1">    ],</span><br/><span class="hl-1">  },</span><br/><span class="hl-1">);</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">editor</span><span class="hl-1"> = </span><span class="hl-5">new</span><span class="hl-1"> </span><span class="hl-0">KatebEditor</span><span class="hl-1">(</span><span class="hl-4">container</span><span class="hl-1">, {</span><br/><span class="hl-1">  </span><span class="hl-4">marks:</span><span class="hl-1"> [</span><span class="hl-4">highlightMark</span><span class="hl-1">],</span><br/><span class="hl-1">});</span>
+</code><button type="button">Copy</button></pre>
+
+<hr>
+<h2 id="⚙️-خيارات-التهيئة" class="tsd-anchor-link">⚙️ خيارات التهيئة<a href="#⚙️-خيارات-التهيئة" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<table>
+<thead>
+<tr>
+<th>الخيار</th>
+<th>النوع</th>
+<th>الافتراضي</th>
+<th>الوصف</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>enableToolbar</code></td>
+<td><code>boolean</code></td>
+<td><code>true</code></td>
+<td>إظهار شريط الأدوات العائم.</td>
+</tr>
+<tr>
+<td><code>enableSlashMenu</code></td>
+<td><code>boolean</code></td>
+<td><code>true</code></td>
+<td>تفعيل قائمة Slash عند كتابة <code>/</code>.</td>
+</tr>
+<tr>
+<td><code>blocks</code></td>
+<td><code>Block[]</code></td>
+<td><code>[]</code></td>
+<td>قائمة البلوكات المراد استخدامها (تُضاف الفقرة تلقائياً).</td>
+</tr>
+<tr>
+<td><code>marks</code></td>
+<td><code>Mark[]</code></td>
+<td><code>[]</code></td>
+<td>قائمة العلامات (مثل غامق، مائل).</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="🛠️-دوال-مساعدة" class="tsd-anchor-link">🛠️ دوال مساعدة<a href="#🛠️-دوال-مساعدة" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<ul>
+<li><code>createBlock(name, spec, options)</code> – إنشاء بلوك.</li>
+<li><code>createMark(name, spec, options)</code> – إنشاء علامة.</li>
+<li><code>createToolbarButton(label, command, isActive?)</code> – إنشاء زر شريط.</li>
+<li><code>createSlashMenuItem(label, searchTerms?)</code> – إنشاء عنصر قائمة.</li>
+<li><code>createKeymap(shortcuts)</code> – إنشاء خريطة اختصارات (للتوحيد).</li>
+</ul>
+<hr>
+<h2 id="📦-مثال-متكامل-مع-vanilla-js" class="tsd-anchor-link">📦 مثال متكامل مع Vanilla JS<a href="#📦-مثال-متكامل-مع-vanilla-js" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<pre><code class="html"><span class="hl-9">&lt;</span><span class="hl-10">div</span><span class="hl-1"> </span><span class="hl-11">id</span><span class="hl-1">=</span><span class="hl-12">&quot;editor&quot;</span><span class="hl-9">&gt;&lt;/</span><span class="hl-10">div</span><span class="hl-9">&gt;</span><br/><span class="hl-9">&lt;</span><span class="hl-10">script</span><span class="hl-13"> </span><span class="hl-11">type</span><span class="hl-13">=</span><span class="hl-12">&quot;module&quot;</span><span class="hl-9">&gt;</span><br/><span class="hl-13">  </span><span class="hl-3">import</span><span class="hl-13"> { </span><span class="hl-4">KatebEditor</span><span class="hl-13">, </span><span class="hl-4">blocks</span><span class="hl-13">, </span><span class="hl-4">marks</span><span class="hl-13"> } </span><span class="hl-3">from</span><span class="hl-13"> </span><span class="hl-2">&quot;kateb-editor&quot;</span><span class="hl-13">;</span><br/><br/><span class="hl-13">  </span><span class="hl-5">const</span><span class="hl-13"> </span><span class="hl-6">editor</span><span class="hl-13"> </span><span class="hl-1">=</span><span class="hl-13"> </span><span class="hl-5">new</span><span class="hl-13"> </span><span class="hl-0">KatebEditor</span><span class="hl-13">(</span><span class="hl-4">document</span><span class="hl-13">.</span><span class="hl-0">getElementById</span><span class="hl-13">(</span><span class="hl-2">&quot;editor&quot;</span><span class="hl-13">), {</span><br/><span class="hl-13">    </span><span class="hl-4">blocks:</span><span class="hl-13"> [</span><span class="hl-4">blocks</span><span class="hl-13">.</span><span class="hl-4">paragraphBlock</span><span class="hl-13">, </span><span class="hl-4">blocks</span><span class="hl-13">.</span><span class="hl-4">headingBlock</span><span class="hl-13">],</span><br/><span class="hl-13">    </span><span class="hl-4">marks:</span><span class="hl-13"> [</span><span class="hl-4">marks</span><span class="hl-13">.</span><span class="hl-4">strongMark</span><span class="hl-13">, </span><span class="hl-4">marks</span><span class="hl-13">.</span><span class="hl-4">emMark</span><span class="hl-13">],</span><br/><span class="hl-13">  });</span><br/><br/><span class="hl-13">  </span><span class="hl-8">// الحصول على المحتوى</span><br/><span class="hl-13">  </span><span class="hl-4">console</span><span class="hl-13">.</span><span class="hl-0">log</span><span class="hl-13">(</span><span class="hl-4">editor</span><span class="hl-13">.</span><span class="hl-0">getContent</span><span class="hl-13">());</span><br/><span class="hl-9">&lt;/</span><span class="hl-10">script</span><span class="hl-9">&gt;</span>
+</code><button type="button">Copy</button></pre>
+
+<hr>
+<h2 id="🤝-المساهمة" class="tsd-anchor-link">🤝 المساهمة<a href="#🤝-المساهمة" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>المشروع مفتوح المصدر، نرحب بمساهماتكم!<br>
+يرجى قراءة <a href="media/CONTRIBUTING.md">دليل المساهمة</a> و<a href="media/CODE_OF_CONDUCT.md">قواعد السلوك</a>.</p>
+<hr>
+<h2 id="📄-الترخيص" class="tsd-anchor-link">📄 الترخيص<a href="#📄-الترخيص" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>MIT License – انظر ملف <a href="media/LICENSE">LICENSE</a>.</p>
+<hr>
+<h2 id="🌐-الروابط" class="tsd-anchor-link">🌐 الروابط<a href="#🌐-الروابط" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<ul>
+<li><a href="https://github.com/your-username/kateb-editor">GitHub Repository</a></li>
+<li><a href="https://your-username.github.io/kateb-editor/">نموذج تجريبي (Demo)</a></li>
+<li><a href="https://your-username.github.io/kateb-editor/docs/">توثيق API</a></li>
+</ul>
+</div></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-accordion"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-chevronDown"></use></svg><h3>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><span class="settings-label">Member Visibility</span><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li></ul></div><div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open class="tsd-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-chevronDown"></use></svg><h3>On This Page</h3></summary><div class="tsd-accordion-details"><a href="#kateb-editor-toolkit"><span>Kateb <wbr/>Editor <wbr/>Toolkit</span></a><ul><li><a href="#✨-المميزات"><span>✨ المميزات</span></a></li><li><a href="#🚀-التثبيت"><span>🚀 التثبيت</span></a></li><li><a href="#📖-الاستخدام-الأساسي"><span>📖 الاستخدام الأساسي</span></a></li><li><a href="#🧩-إضافة-بلوك-مخصص"><span>🧩 إضافة بلوك مخصص</span></a></li><li><a href="#🏷️-إضافة-علامة-mark-مخصصة"><span>🏷️ إضافة علامة (<wbr/>Mark) مخصصة</span></a></li><li><a href="#⚙️-خيارات-التهيئة"><span>⚙️ خيارات التهيئة</span></a></li><li><a href="#🛠️-دوال-مساعدة"><span>🛠️ دوال مساعدة</span></a></li><li><a href="#📦-مثال-متكامل-مع-vanilla-js"><span>📦 مثال متكامل مع <wbr/>Vanilla <wbr/>JS</span></a></li><li><a href="#🤝-المساهمة"><span>🤝 المساهمة</span></a></li><li><a href="#📄-الترخيص"><span>📄 الترخيص</span></a></li><li><a href="#🌐-الروابط"><span>🌐 الروابط</span></a></li></ul></div></details></div><div class="site-menu"><nav class="tsd-navigation"><a href="modules.html">Kateb Editor API</a><ul class="tsd-small-nested-navigation" id="tsd-nav-container"><li>Loading...</li></ul></nav></div></div></div><footer><p class="tsd-generator">Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></footer><div class="overlay"></div></body></html>

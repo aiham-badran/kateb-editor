@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Kateb Editor - تجربة</title>
+  </head>
+  <body>
+    <h1>محرر كاتب ✍️</h1>
+    <div id="editor-container"></div>
+
+    <script type="module">
+      import { KatebEditor, blocks, marks } from "./src/index.ts";
+
+      const editor = new KatebEditor(
+        document.getElementById("editor-container"),
+      );
+
+      console.log(editor.getContent());
+    </script>
+  </body>
+</html>

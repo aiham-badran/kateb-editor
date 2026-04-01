@@ -1,0 +1,11 @@
+{
+  "entryPoints": ["src/index.ts"],
+  "out": "docs",
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "excludeExternals": true,
+  "categorizeByGroup": true,
+  "categoryOrder": ["Core", "Blocks", "Marks", "Arabic Engine", "UI", "*"],
+  "readme": "README.md",
+  "name": "Kateb Editor API"
+}
